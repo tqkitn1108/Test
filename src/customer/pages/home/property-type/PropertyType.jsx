@@ -19,7 +19,7 @@ const PropertyType = () => {
                     modules={[Navigation]}
                     slidesPerView={slidesPerView}
                     spaceBetween={16}
-                    loop={true}  // Enable looping
+                    loop={true}
                     className="swiper-container"
                 >
                     {propertyTypes.map((propertyType, i) => (
@@ -29,6 +29,7 @@ const PropertyType = () => {
                                     src={propertyType.image}
                                     alt={propertyType.label}
                                     className="rounded-lg w-full h-[210px] object-cover md:h-[130px]"
+                                    style={{ height: '210px' }}
                                 />
                                 <div className="text-center mt-2">
                                     <h5 className="text-lg">{propertyType.label}</h5>
@@ -37,7 +38,6 @@ const PropertyType = () => {
                             </div>
                         </SwiperSlide>
                     ))}
-                    {/* Custom Navigation Icons */}
                     <div className="absolute top-1/2 left-0 transform -translate-y-1/2 swiper-button-prev">
                         <IoCaretBackCircleOutline className="w-10 h-10 text-indigo-600 cursor-pointer" />
                     </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import PropertyType from './property-type/PropertyType';
 import styled from 'styled-components';
 import Trending from './trending/Trending';
-
+import Explore from './explore/Explore';
 const HomeContainer = styled.div`
     width: 100%;
     max-width: 1100px;  /* Updated max width to 1100px */

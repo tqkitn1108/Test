@@ -46,6 +46,11 @@ const Homepage = () => {
                 <Description>Du khách tìm kiếm về Việt Nam cũng đặt chỗ ở những nơi này</Description>
                 <Trending />
             </ContentContainer>
+            <ContentContainer>
+                <Title className="home-title">Khám phá Việt Nam</Title>
+                <Description className="home-describe">Các điểm đến phổ biến này có nhiều điều chờ đón bạn</Description>
+                <Explore />
+            </ContentContainer>
         </HomeContainer>
     );
 }

@@ -5,20 +5,20 @@ import Trending from './trending/Trending';
 import Explore from './explore/Explore';
 const HomeContainer = styled.div`
     width: 100%;
-    max-width: 1100px;  /* Updated max width to 1100px */
-    margin: 0 auto;    /* Center the container */
-    padding: 16px;     /* Add some padding for spacing */
+    max-width: 1100px; 
+    margin: 0 auto;     
+    padding: 16px;     
 
-    @media (max-width: 46.1875em) {
-        max-width: 350px;  /* Adjust max width for smaller screens */
+    @media (max-width: 740px) {
+        max-width: 350px;  
     }
 `;
 
 const Title = styled.h1`
-    margin: 64px 0 12px;
+    margin: 64px 0 12px;   
     font-weight: 700;
     font-size: 24px;
-    text-align: left; /* Aligns the title to the left */
+    text-align: left;      
 `;
 
 const Description = styled.h3`
@@ -26,12 +26,12 @@ const Description = styled.h3`
     color: #474747;
     font-size: 16px;
     font-weight: 400;
-    text-align: left; /* Aligns the description to the left */
-`;
+    text-align: left;      
 
 const ContentContainer = styled.div`
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
+display: flex;
+flex - direction: column;
+gap: 16px;
 `;
 
 const Homepage = () => {

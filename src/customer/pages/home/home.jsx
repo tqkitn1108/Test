@@ -3,6 +3,7 @@ import PropertyType from './property-type/PropertyType';
 import styled from 'styled-components';
 import Trending from './trending/Trending';
 import Explore from './explore/Explore';
+import TripPlanner from './trip-planner/trip-planner';
 const HomeContainer = styled.div`
     width: 100%;
     max-width: 1100px; 
@@ -26,12 +27,13 @@ const Description = styled.h3`
     color: #474747;
     font-size: 16px;
     font-weight: 400;
-    text-align: left;      
+    text-align: left;       
+`;
 
 const ContentContainer = styled.div`
-display: flex;
-flex - direction: column;
-gap: 16px;
+    display: flex;
+    flex-direction: column; 
+    gap: 16px;              
 `;
 
 const Homepage = () => {
@@ -50,6 +52,11 @@ const Homepage = () => {
                 <Title className="home-title">Khám phá Việt Nam</Title>
                 <Description className="home-describe">Các điểm đến phổ biến này có nhiều điều chờ đón bạn</Description>
                 <Explore />
+            </ContentContainer>
+            <ContentContainer>
+                <Title className="home-title">Lên kế hoạch dễ dàng và nhanh chóng</Title>
+                <Description className="home-describe">Khám phá các điểm đến hàng đầu theo cách bạn thích ở Việt Nam</Description>
+                <TripPlanner />
             </ContentContainer>
         </HomeContainer>
     );

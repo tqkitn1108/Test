@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Trending from './trending/Trending';
 import Explore from './explore/Explore';
 import TripPlanner from './trip-planner/trip-planner';
+import FeaturedHome from './feature-home/FeatureHome';
 const HomeContainer = styled.div`
     width: 100%;
     max-width: 1100px; 
@@ -57,6 +58,11 @@ const Homepage = () => {
                 <Title className="home-title">Lên kế hoạch dễ dàng và nhanh chóng</Title>
                 <Description className="home-describe">Khám phá các điểm đến hàng đầu theo cách bạn thích ở Việt Nam</Description>
                 <TripPlanner />
+            </ContentContainer>
+            <ContentContainer>
+                <Title className="home-title">Nhà ở mà khách yêu thích</Title>
+                <Description className="home-describe">Được lựa chọn bởi các khách hàng đã ghé qua</Description>
+                <FeaturedHome />
             </ContentContainer>
         </HomeContainer>
     );

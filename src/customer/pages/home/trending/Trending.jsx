@@ -18,7 +18,13 @@ export default function Trending() {
                     <img className="trending-title-img w-5 ml-2" src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="Vietnam flag" />
                 </div>
             </div>
-
+            <div className="relative overflow-hidden rounded-xl col-span-3 trending-top" style={{ height: '250px' }}>
+                <img className="h-full w-full object-cover" src={cities[1].imageUrl} alt={cities[1].name} />
+                <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-2 flex items-center trending-title">
+                    <p className="text-white trending-title">{cities[1].name}</p>
+                    <img className="trending-title-img w-5 ml-2" src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="Vietnam flag" />
+                </div>
+            </div>
             <div className="relative overflow-hidden rounded-xl col-span-2 trending-bottom" style={{ height: '250px' }}>
                 <img className="h-full w-full object-cover" src={cities[2].imageUrl} alt={cities[2].name} />
                 <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-2 flex items-center trending-title">

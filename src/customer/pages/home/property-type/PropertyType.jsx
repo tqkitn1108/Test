@@ -23,21 +23,7 @@ const PropertyType = () => {
                     className="swiper-container"
                 >
                     {propertyTypes.map((propertyType, i) => (
-                        <SwiperSlide key={i} className="swiper-slide">
-                            <div className="overflow-hidden cursor-pointer flex flex-col items-center">
-                                <img
-                                    src={propertyType.image}
-                                    alt={propertyType.label}
-                                    className="rounded-lg w-full h-[210px] object-cover md:h-[130px]"
-                                    style={{ height: '210px' }}
-                                />
-                                <div className="text-center mt-2">
-                                    <h5 className="text-lg">{propertyType.label}</h5>
-                                    <h5 className="text-gray-700 font-normal mt-1 text-sm">0 chỗ nghỉ</h5>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                    ))}
+
                     <div className="absolute top-1/2 left-0 transform -translate-y-1/2 swiper-button-prev">
                         <IoCaretBackCircleOutline className="w-10 h-10 text-indigo-600 cursor-pointer" />
                     </div>

@@ -26,7 +26,7 @@ export default function SplitButton({ id, setSelectedRooms }) {
         const response = await api.get(`/hotels/roomTypes/${id}/availableRooms?checkIn=${searchParams.get('checkIn')}&checkOut=${searchParams.get('checkOut')}`);
         setSelectedIndex(0);
         setAvailRooms(response.data);
-        setOptions(Array.from({ length: response.data.length }, (_, i) => i));
+        setOptions(Array.from({ length: response.data.length + 1 }, (_, i) => i));
       } catch (err) {
         console.log(err);
       }
@@ -38,8 +38,8 @@ export default function SplitButton({ id, setSelectedRooms }) {
     setSelectedIndex(index);
     setSelectedRooms((prev) => ({
       ...prev,
-      [`${id}`]: availRooms.slice(0, index) 
-    }));
+      [`${id}`]: availRooms.slice(0, index)
+    }))
     setOpen(false);
   };
 
@@ -100,10 +100,6 @@ export default function SplitButton({ id, setSelectedRooms }) {
                       {option}
                     </MenuItem>
                   ))}
-                  <MenuItem>
-                    {undefinedVariable} 
-                  </MenuItem>
-                  {options.length === 0 && <MenuItem>Empty Option</MenuItem>}
                 </MenuList>
               </ClickAwayListener>
             </Paper>

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaChartArea } from "react-icons/fa";
+import { FaTreeCity } from "react-icons/fa6";
+import { FaMapLocationDot } from "react-icons/fa6";
 
 function FavoriteDestination() {
     const tabsData = {
         regions: [
-            // Thêm 19 dữ liệu mẫu
             { name: 'Hanoi', rooms: 150 },
             { name: 'Ho Chi Minh City', rooms: 200 },
             { name: 'Danang', rooms: 120 },
@@ -77,28 +79,36 @@ function FavoriteDestination() {
 
     return (
         <div className="bg-white w-full text-sm p-5">
-            <div className="flex space-x-4 overflow-x-auto">
-                <div
-                    className={`tab ${activeTab === 'regions' ? 'bg-white' : 'hover:bg-gray-200'} p-2 cursor-pointer relative transition-colors rounded-t-md`}
-                    onClick={() => handleTabSelect('regions')}
-                >
-                    <div className="tab-label text-base text-gray-800">Khu vực</div>
-                    {activeTab === 'regions' && <div className="tab-indicator absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-1 bg-blue-600 transition-width"></div>}
-                </div>
-                <div
-                    className={`tab ${activeTab === 'cities' ? 'bg-white' : 'hover:bg-gray-200'} p-2 cursor-pointer relative transition-colors rounded-t-md`}
-                    onClick={() => handleTabSelect('cities')}
-                >
-                    <div className="tab-label text-base text-gray-800">Thành phố</div>
-                    {activeTab === 'cities' && <div className="tab-indicator absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-1 bg-blue-600 transition-width"></div>}
-                </div>
-                <div
-                    className={`tab ${activeTab === 'placesOfInterest' ? 'bg-white' : 'hover:bg-gray-200'} p-2 cursor-pointer relative transition-colors rounded-t-md`}
-                    onClick={() => handleTabSelect('placesOfInterest')}
-                >
-                    <div className="tab-label text-base text-gray-800">Địa điểm nổi bật</div>
-                    {activeTab === 'placesOfInterest' && <div className="tab-indicator absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-1 bg-blue-600 transition-width"></div>}
-                </div>
+            <div className="border-b border-gray-200 dark:border-gray-700">
+                <ul className="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+                    <li className="me-2">
+                        <button
+                            className={`inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group ${activeTab === 'regions' ? 'text-blue-600 border-blue-600' : ''}`}
+                            onClick={() => handleTabSelect('regions')}
+                        >
+                            <FaChartArea />
+                            Khu vực
+                        </button>
+                    </li>
+                    <li className="me-2">
+                        <button
+                            className={`inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group ${activeTab === 'cities' ? 'text-blue-600 border-blue-600' : ''}`}
+                            onClick={() => handleTabSelect('cities')}
+                        >
+                            <FaTreeCity />
+                            Thành phố
+                        </button>
+                    </li>
+                    <li className="me-2">
+                        <button
+                            className={`inline-flex items-center justify-center p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group ${activeTab === 'placesOfInterest' ? 'text-blue-600 border-blue-600' : ''}`}
+                            onClick={() => handleTabSelect('placesOfInterest')}
+                        >
+                            <FaMapLocationDot />
+                            Địa điểm nổi bật
+                        </button>
+                    </li>
+                </ul>
             </div>
             <div className="tab-content border-t border-gray-300 rounded-b-md p-5 bg-white">
                 {activeTab === 'regions' && (

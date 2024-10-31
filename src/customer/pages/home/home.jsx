@@ -6,6 +6,11 @@ import Explore from './explore/Explore';
 import TripPlanner from './trip-planner/trip-planner';
 import FeaturedHome from './feature-home/FeatureHome';
 import FavoriteDestination from './favorite-destination/FavoriteDestination';
+/* 
+Remain task: + Restyle the homepage to make it look more appealing
+             + Fix when click on a left or right arrow, more than one swiper item is moved
+             
+*/
 const HomeContainer = styled.div`
     width: 100%;
     max-width: 1100px; 

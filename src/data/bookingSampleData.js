@@ -1,5 +1,6 @@
+// sampleData.js
 
-const bookingSampleData = [
+export const bookingSampleData = [
     {
         id: 1,
         hotelName: "Paradise Resort",
@@ -8,10 +9,7 @@ const bookingSampleData = [
         checkOutDate: "2023-11-12",
         adults: 2,
         children: 1,
-        rooms: [
-            { roomNumber: "101" },
-            { roomNumber: "102" }
-        ],
+        rooms: [{ roomNumber: "101" }, { roomNumber: "102" }],
         bookingStatus: "ACCEPTED",
         isRated: false,
         hotelId: 101
@@ -24,9 +22,7 @@ const bookingSampleData = [
         checkOutDate: "2023-12-03",
         adults: 2,
         children: 2,
-        rooms: [
-            { roomNumber: "201" }
-        ],
+        rooms: [{ roomNumber: "201" }],
         bookingStatus: "PENDING",
         isRated: true,
         hotelId: 102
@@ -39,11 +35,7 @@ const bookingSampleData = [
         checkOutDate: "2023-12-18",
         adults: 1,
         children: 0,
-        rooms: [
-            { roomNumber: "301" },
-            { roomNumber: "302" },
-            { roomNumber: "303" }
-        ],
+        rooms: [{ roomNumber: "301" }, { roomNumber: "302" }, { roomNumber: "303" }],
         bookingStatus: "CANCELLED",
         isRated: false,
         hotelId: 103
@@ -56,13 +48,217 @@ const bookingSampleData = [
         checkOutDate: "2023-12-22",
         adults: 1,
         children: 1,
-        rooms: [
-            { roomNumber: "401" }
-        ],
+        rooms: [{ roomNumber: "401" }],
         bookingStatus: "ACCEPTED",
         isRated: true,
         hotelId: 104
+    },
+    {
+        id: 5,
+        hotelName: "Sunset Villa",
+        totalPrice: 5000000,
+        checkInDate: "2024-01-05",
+        checkOutDate: "2024-01-10",
+        adults: 4,
+        children: 2,
+        rooms: [{ roomNumber: "501" }, { roomNumber: "502" }],
+        bookingStatus: "PENDING",
+        isRated: false,
+        hotelId: 105
+    },
+    {
+        id: 6,
+        hotelName: "Luxury Oasis",
+        totalPrice: 750000,
+        checkInDate: "2024-02-01",
+        checkOutDate: "2024-02-03",
+        adults: 1,
+        children: 0,
+        rooms: [{ roomNumber: "601" }],
+        bookingStatus: "ACCEPTED",
+        isRated: true,
+        hotelId: 106
+    },
+    {
+        id: 7,
+        hotelName: "Grand Royal Hotel",
+        totalPrice: 3300000,
+        checkInDate: "2024-02-10",
+        checkOutDate: "2024-02-14",
+        adults: 3,
+        children: 1,
+        rooms: [{ roomNumber: "701" }, { roomNumber: "702" }],
+        bookingStatus: "CANCELLED",
+        isRated: false,
+        hotelId: 107
+    },
+    {
+        id: 8,
+        hotelName: "Beachfront Suites",
+        totalPrice: 2800000,
+        checkInDate: "2024-03-05",
+        checkOutDate: "2024-03-10",
+        adults: 2,
+        children: 2,
+        rooms: [{ roomNumber: "801" }],
+        bookingStatus: "ACCEPTED",
+        isRated: true,
+        hotelId: 108
+    },
+    {
+        id: 9,
+        hotelName: "Countryside Inn",
+        totalPrice: 1300000,
+        checkInDate: "2024-03-15",
+        checkOutDate: "2024-03-17",
+        adults: 2,
+        children: 0,
+        rooms: [{ roomNumber: "901" }],
+        bookingStatus: "PENDING",
+        isRated: false,
+        hotelId: 109
+    },
+    {
+        id: 10,
+        hotelName: "City Lights Hotel",
+        totalPrice: 1700000,
+        checkInDate: "2024-04-01",
+        checkOutDate: "2024-04-03",
+        adults: 1,
+        children: 1,
+        rooms: [{ roomNumber: "1001" }],
+        bookingStatus: "ACCEPTED",
+        isRated: false,
+        hotelId: 110
+    },
+    {
+        id: 11,
+        hotelName: "Hilltop Haven",
+        totalPrice: 2500000,
+        checkInDate: "2024-04-10",
+        checkOutDate: "2024-04-15",
+        adults: 2,
+        children: 2,
+        rooms: [{ roomNumber: "1101" }, { roomNumber: "1102" }],
+        bookingStatus: "CANCELLED",
+        isRated: true,
+        hotelId: 111
+    },
+    {
+        id: 12,
+        hotelName: "Urban Retreat",
+        totalPrice: 2000000,
+        checkInDate: "2024-05-01",
+        checkOutDate: "2024-05-03",
+        adults: 2,
+        children: 1,
+        rooms: [{ roomNumber: "1201" }],
+        bookingStatus: "PENDING",
+        isRated: false,
+        hotelId: 112
+    },
+    {
+        id: 13,
+        hotelName: "Lakeside Inn",
+        totalPrice: 1600000,
+        checkInDate: "2024-05-05",
+        checkOutDate: "2024-05-07",
+        adults: 1,
+        children: 0,
+        rooms: [{ roomNumber: "1301" }],
+        bookingStatus: "ACCEPTED",
+        isRated: true,
+        hotelId: 113
+    },
+    {
+        id: 14,
+        hotelName: "Desert Mirage",
+        totalPrice: 2900000,
+        checkInDate: "2024-06-01",
+        checkOutDate: "2024-06-05",
+        adults: 2,
+        children: 2,
+        rooms: [{ roomNumber: "1401" }],
+        bookingStatus: "PENDING",
+        isRated: false,
+        hotelId: 114
+    },
+    {
+        id: 15,
+        hotelName: "Mountain Peaks Hotel",
+        totalPrice: 3400000,
+        checkInDate: "2024-06-15",
+        checkOutDate: "2024-06-20",
+        adults: 3,
+        children: 1,
+        rooms: [{ roomNumber: "1501" }, { roomNumber: "1502" }],
+        bookingStatus: "ACCEPTED",
+        isRated: true,
+        hotelId: 115
+    },
+    {
+        id: 16,
+        hotelName: "Ocean Breeze Inn",
+        totalPrice: 1250000,
+        checkInDate: "2024-07-01",
+        checkOutDate: "2024-07-03",
+        adults: 2,
+        children: 0,
+        rooms: [{ roomNumber: "1601" }],
+        bookingStatus: "CANCELLED",
+        isRated: false,
+        hotelId: 116
+    },
+    {
+        id: 17,
+        hotelName: "Historic Manor",
+        totalPrice: 2750000,
+        checkInDate: "2024-07-10",
+        checkOutDate: "2024-07-12",
+        adults: 1,
+        children: 1,
+        rooms: [{ roomNumber: "1701" }],
+        bookingStatus: "ACCEPTED",
+        isRated: true,
+        hotelId: 117
+    },
+    {
+        id: 18,
+        hotelName: "Riverside Getaway",
+        totalPrice: 2100000,
+        checkInDate: "2024-08-01",
+        checkOutDate: "2024-08-05",
+        adults: 2,
+        children: 2,
+        rooms: [{ roomNumber: "1801" }, { roomNumber: "1802" }],
+        bookingStatus: "PENDING",
+        isRated: false,
+        hotelId: 118
+    },
+    {
+        id: 19,
+        hotelName: "Garden Suites",
+        totalPrice: 1950000,
+        checkInDate: "2024-08-15",
+        checkOutDate: "2024-08-17",
+        adults: 1,
+        children: 0,
+        rooms: [{ roomNumber: "1901" }],
+        bookingStatus: "CANCELLED",
+        isRated: true,
+        hotelId: 119
+    },
+    {
+        id: 20,
+        hotelName: "Skyline Hotel",
+        totalPrice: 1800000,
+        checkInDate: "2024-09-01",
+        checkOutDate: "2024-08-17",
+        adults: 1,
+        children: 0,
+        rooms: [{ roomNumber: "1901" }],
+        bookingStatus: "CANCELLED",
+        isRated: true,
+        hotelId: 119
     }
 ];
-
-export default bookingSampleData;

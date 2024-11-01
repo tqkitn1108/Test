@@ -26,11 +26,11 @@ const CardSlick = ({ reviews }) => {
                                 {review.fullName[0]}
                             </Avatar>
                         }
-                            action={
-                                <IconButton aria-label="settings">
-                                    <MoreVertIcon />
-                                </IconButton>
-                            }
+                            // action={
+                            //     <IconButton aria-label="settings">
+                            //         <MoreVertIcon />
+                            //     </IconButton>
+                            // }
                             title={review.fullName}
                             subheader={review.reviewDate}
                         />

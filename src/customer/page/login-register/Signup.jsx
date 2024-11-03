@@ -20,7 +20,7 @@ const Signup = () => {
           password: '',
           confirmPassword: '',
         }}
-        onSubmit={() => {}} // Placeholder for submit handler
+        onSubmit={() => {}}
       >
         {formik => (
           <section className="h-screen bg-light">
@@ -80,6 +80,57 @@ const Signup = () => {
                               <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
                             </button>
                           </div>
+
+                          <div className="mb-4 relative">
+                            <label className="block text-lg font-semibold mb-2" htmlFor="confirmPassword">
+                              Repeat Password <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                              type={showConfirmPassword ? 'text' : 'password'}
+                              id="confirmPassword"
+                              name="confirmPassword"
+                              className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                              onChange={formik.handleChange}
+                              value={formik.values.confirmPassword}
+                            />
+                            <button
+                              type="button"
+                              className="absolute right-2 top-2 text-gray-500"
+                              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                            >
+                              <FontAwesomeIcon icon={showConfirmPassword ? faEyeSlash : faEye} />
+                            </button>
+                          </div>
+
+                          <div className="mb-6 flex items-center">
+                            <input
+                              className="mr-2 leading-tight"
+                              type="checkbox"
+                              value=""
+                              id="form2Example3cg"
+                            />
+                            <label className="text-gray-700" htmlFor="form2Example3g">
+                              I agree all statements in{' '}
+                              <a href="#!" className="text-blue-600 underline">
+                                Terms of service
+                              </a>
+                            </label>
+                          </div>
+
+                          <div className="flex justify-center">
+                            <button
+                              type="submit"
+                              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg"
+                            >
+                              Register
+                            </button>
+                          </div>
+                          <p className="text-center text-gray-500 mt-4">
+                            Have already an account?{' '}
+                            <Link to="/login" className="text-blue-600 font-semibold">
+                              Login here
+                            </Link>
+                          </p>
                         </form>
                       </div>
                     </div>

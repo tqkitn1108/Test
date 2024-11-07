@@ -1,11 +1,7 @@
-import "./hotel.css";
-import React, { useEffect } from 'react';
-import Navbar from "../../navbar/Navbar";
+import React, { useEffect, useState } from 'react';
 import Footer from "../../footer/Footer";
 import Email from "../../email/Email";
-import { RatingComponent } from "../list/SearchItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import api from "../../../api/AxiosConfig";
 import Badges from "./Badge";
 import {
   faCircleArrowLeft,
@@ -13,7 +9,6 @@ import {
   faCircleXmark,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
 import Table from "./Table";
 import CardSlick from "./CardSlick";
 import { useLocation, useParams } from "react-router-dom";
@@ -32,14 +27,14 @@ const Hotel = () => {
     async function loadHotelData() {
       try {
         if (!searchParams.get('checkIn')) setShowRooms(false);
-        const response = await api.get(`/business/hotels/${hotelId}`);
-        setHotel(response.data);
+
       } catch (err) {
         console.log(err);
       }
     }
     loadHotelData();
-  }, [])
+  }, []);
+
   const rStars = (value) => {
     const stars = [];
     if (value > 0) {
@@ -71,9 +66,7 @@ const Hotel = () => {
   };
 
   return (
-
     <div className="hotel">
-      <div className='fixed-navbar'><Navbar /></div>
       <div className="hotelContainer">
         {open && (
           <div className="slider">
@@ -95,10 +88,6 @@ const Hotel = () => {
           </div>
         )}
         <div className="hotelWrapper">
-          <div className="siRating rating">
-            <span className="cmt"><RatingComponent rating={hotel.rating}></RatingComponent></span>
-            <button>{hotel.rating?.toFixed(1)}</button>
-          </div>
           <h1 className="hotelTitle">{hotel.name} {rStars(hotel.star)}</h1>
           <div className="hotelAddress">
             <FontAwesomeIcon icon={faLocationDot} style={{ color: "#0071C2" }} />
@@ -162,7 +151,6 @@ const Hotel = () => {
       <Email />
       <Footer />
     </div>
-
   );
 };
 

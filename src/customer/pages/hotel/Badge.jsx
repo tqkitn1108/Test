@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './badge.css';
 
 export default function Badges({ hotelFacilites }) {
     return (

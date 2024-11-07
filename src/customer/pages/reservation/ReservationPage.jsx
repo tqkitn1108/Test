@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import './reservation.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWifi, faShuttleVan, faParking, faCheckCircle, faLock, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
@@ -8,10 +7,6 @@ import { Formik, Field, Form, ErrorMessage, useFormikContext } from 'formik';
 import { format } from 'date-fns';
 import { vi } from 'date-fns/locale';
 import * as Yup from 'yup';
-import cvcCodeImage from './cvcCodeImage.png';
-import api from '../../../api/AxiosConfig';
-import Navbar from '../../navbar/Navbar';
-import LoadingSpinner from '../../../components/loading-spinner/LoadingSpinner';
 
 const GoodToKnow = () => {
   return (
@@ -48,7 +43,6 @@ const SecurePage = ({ hotelId, location }) => {
     };
     setLoading(true);
     try {
-      await api.post(`/bookings/hotels/${hotelId}`, requestData);
       setLoading(false);
       alert("Thông tin đặt phòng đã được gửi đi. Mọi thông tin về thông tin đặt phòng sẽ được gửi về email ngay khi khách sạn xác nhận. Vui lòng thường xuyên kiểm tra email của bạn!");
       navigate("/");
@@ -92,7 +86,6 @@ const SecurePage = ({ hotelId, location }) => {
 
   return (
     <div>
-      {loading && <LoadingSpinner />}
       <div className='dad'>
         <div className='Login template'>
           <div className='form_container p-9 rounded bg-white'>
@@ -200,8 +193,6 @@ const SecurePage = ({ hotelId, location }) => {
   );
 };
 
-
-
 const ReservationPage = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -213,21 +204,21 @@ const ReservationPage = () => {
   const [hotel, setHotel] = useState({});
 
   useEffect(() => {
-    async function loadHotelData() {
-      try {
-        const response = await api.get(`/business/hotels/${hotelId}`);
-        setHotel(response.data);
-      } catch (err) {
-        console.log(err);
-      }
+    try {
+      const hotelData = {
+        name: "Khách sạn Hà Nội",
+        address: "Quận Hoàn Kiếm",
+        rating: 4.5
+      };
+  
+      setHotel(hotelData);
+    } catch (err) {
+      console.log(err);
     }
-    loadHotelData();
-  }, [])
-
+  }, []);
 
   return (
     <div>
-      <Navbar />
       <div className="content-container align-items-center">
         <div className="reservation-container" >
           <div className='check'>

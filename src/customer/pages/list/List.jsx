@@ -1,6 +1,7 @@
 import SearchItem from "./SearchItem";
 import Navbar from "../../navbar/Navbar.jsx";
 import Header from "../../header/Header.jsx";
+import Pagination from "./Pagination";
 
 const List = () => {
   return (
@@ -16,20 +17,16 @@ const List = () => {
                 <h2 className="text-lg">Chọn lọc theo:</h2>
               </div>
             </div>
-            {/* <div className="listWrapper">
-                        <div className="listSearch">
-                            <h3 className="lsTitle">Ngân sách tối đa của bạn (mỗi đêm)</h3>
-                            <div>
-                                <label htmlFor="filterRange">VND {(rangeValue).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</label>
-                                <input type="range" id="filterRange" name="filterRange" min="0" max="4000000" value={rangeValue} onChange={handleRangeChange} />
-                            </div>
-                        </div>
-                    </div> */}
           </div>
-          <div className="flex w-4/5 justify-center ml-4">
-              <div className="w-110">
-                  <SearchItem />
-              </div>
+
+          <div className="flex flex-col w-4/5 ml-4">
+            <div className="w-110">
+              <SearchItem />
+            </div>
+
+            <div className="flex justify-center items-center mt-4">
+              <Pagination />
+            </div>
           </div>
         </div>
       </div>

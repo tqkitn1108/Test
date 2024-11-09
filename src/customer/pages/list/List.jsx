@@ -22,6 +22,12 @@ const List = () => {
           <div className="flex flex-col w-4/5 ml-4">
             <div className="w-110">
               <SearchItem />
+              <SearchItem />
+              <SearchItem />
+              <SearchItem />
+              <SearchItem />
+              <SearchItem />
+              <SearchItem />
             </div>
 
             <div className="flex justify-center items-center mt-4">

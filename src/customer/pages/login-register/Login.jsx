@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import Navbar from "../../navbar/Navbar";
+import { FACEBOOK_AUTH_URL, GOOGLE_AUTH_URL } from '../../../api/UrlConstant';
 
 const Login = () => {
   return (
@@ -55,7 +56,7 @@ const Login = () => {
               <div className="flex justify-center">
                 <a
                   className="no-underline w-full py-2 text-white bg-red-600 rounded flex justify-center items-center"
-                  href="API Google here"
+                  href={GOOGLE_AUTH_URL}
                 >
                   <FontAwesomeIcon icon={faGoogle} className="mr-2" />
                   Sign in with Google
@@ -65,7 +66,7 @@ const Login = () => {
               <div className="flex justify-center mt-3">
                 <a
                   className="no-underline w-full py-2 text-white bg-blue-700 rounded flex justify-center items-center"
-                  href="API Facebook here"
+                  href={FACEBOOK_AUTH_URL}
                 >
                   <FontAwesomeIcon icon={faFacebook} className="mr-2" /> Sign in
                   with Facebook

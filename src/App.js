@@ -7,6 +7,7 @@ import Signup from "./customer/pages/login-register/Signup.jsx";
 import Hotel from "./customer/pages/hotel/Hotel.jsx";
 import Home from "./hotel-dashboard/pages/home/Home.jsx";
 import List from "./hotel-dashboard/pages/list/List.jsx";
+import New from "./hotel-dashboard/pages/new/New.jsx";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/signup' element={<Signup />} ></Route>
         <Route path='/Home' element={<Home />} ></Route>
         <Route path='/List' element={<List />} ></Route>
+        <Route path='/New' element={<New />} ></Route>
         
       </Routes>
     </Router>

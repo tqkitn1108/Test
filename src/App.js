@@ -9,12 +9,14 @@ import Login from "./customer/pages/login-register/Login.jsx";
 import Signup from "./customer/pages/login-register/Signup.jsx";
 import Hotel from "./customer/pages/hotel/Hotel.jsx";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HotelDashboard from './hotel-dashboard/HotelDashboard.jsx';
 function App() {
   return (
     <Router>
       <Routes>
         <Route path='/booking' element={<Booking />} ></Route>
         <Route path='/' element={<Homepage />} ></Route>
+        <Route path="/hotel-dashboard/components" element={<HotelDashboard />} />
       </Routes>
     </Router>
   );

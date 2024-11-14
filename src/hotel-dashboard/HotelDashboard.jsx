@@ -4,6 +4,8 @@ import Chart from './components/chart/Chart'
 import Navbar from './components/navbar/Navbar'
 import styled from 'styled-components';
 import Sidebar from './components/sidebar/Sidebar';
+import BookingList from './components/table/Table';
+import Widget from './components/widget/widget';
 
 const ContentContainer = styled.div`
     display: flex;
@@ -24,6 +26,14 @@ export default function HotelDashboard() {
             <ContentContainer>
                 <Title>Sidebar Comp</Title>
                 <Sidebar />
+            </ContentContainer>
+            <ContentContainer>
+                <Title>Table Comp</Title>
+                <BookingList />
+            </ContentContainer>
+            <ContentContainer>
+                <Title>Widget Comp</Title>
+                <Widget type="balance" />
             </ContentContainer>
         </div>
     )

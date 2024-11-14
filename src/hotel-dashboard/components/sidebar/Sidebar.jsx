@@ -14,9 +14,19 @@ const Sidebar = ({ hideSideBar }) => {
     };
 
     useEffect(() => {
-        // Load data logic removed
-    }, [hotelId]);
-
+        async function loadData() {
+            try {
+                const response = await fetch(`https://booking-app-backend-2mxz.onrender.com/api/v1/hotels/${hotelId}`);
+                setHotelImg(response.data.photos?.[0])
+                setHotelName(response.data.name);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        if (hotelId) {
+            loadData();
+        }
+    }, []);
     return (
         <div className={`sidebar ${hideSideBar ? "hidden" : ""}`}>
             <div className="sidebarWrapper">

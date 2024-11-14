@@ -8,6 +8,7 @@ import Hotel from "./customer/pages/hotel/Hotel.jsx";
 import Home from "./hotel-dashboard/pages/home/Home.jsx";
 import List from "./hotel-dashboard/pages/list/List.jsx";
 import New from "./hotel-dashboard/pages/new/New.jsx";
+import HotelInput from './hotel-dashboard/pages/newHotel/HotelInput.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/Home' element={<Home />} ></Route>
         <Route path='/List' element={<List />} ></Route>
         <Route path='/New' element={<New />} ></Route>
+        <Route path='/HotelInput' element={<HotelInput />} ></Route>
         
       </Routes>
     </Router>

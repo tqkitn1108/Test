@@ -1,4 +1,4 @@
-import React from "react";
+import "./chart.scss";
 import {
     AreaChart,
     Area,
@@ -15,17 +15,12 @@ const data = [
     { name: "April", Total: 1600 },
     { name: "May", Total: 900 },
     { name: "June", Total: 1700 },
-    { name: "July", Total: 1500 },
-    { name: "August", Total: 1300 },
-    { name: "September", Total: 1800 },
-    { name: "October", Total: 2000 },
-    { name: "November", Total: 1400 },
-    { name: "December", Total: 1900 }
 ];
+
 const Chart = ({ aspect, title }) => {
     return (
-        <div className="p-4 shadow-lg rounded-lg bg-white">
-            <div className="text-lg font-semibold mb-4">{title}</div>
+        <div className="chart">
+            <div className="title">{title}</div>
             <ResponsiveContainer width="100%" aspect={aspect}>
                 <AreaChart
                     width={730}
@@ -39,8 +34,8 @@ const Chart = ({ aspect, title }) => {
                             <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
                         </linearGradient>
                     </defs>
-                    <XAxis dataKey="name" stroke="#8884d8" />
-                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" stroke="gray" />
+                    <CartesianGrid strokeDasharray="3 3" className="chartGrid" />
                     <Tooltip />
                     <Area
                         type="monotone"
@@ -56,4 +51,3 @@ const Chart = ({ aspect, title }) => {
 };
 
 export default Chart;
-

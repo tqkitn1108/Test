@@ -1,0 +1,49 @@
+.table {
+    .cellWrapper {
+        display: flex;
+        align-items: center;
+
+        .image {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+    }
+
+    .tableCell {
+        padding: 10px;
+        max-width: 250px;
+        min-width: 100px;
+        word-break: break-word;
+
+        &.id {
+            width: 210px;
+        }
+
+        &.status-column {
+            width: 120px;
+        }
+    }
+
+    .status {
+        padding: 5px;
+        border-radius: 5px;
+
+        &.ACCEPTED {
+            color: green;
+            background-color: rgba(0, 128, 0, 0.151);
+        }
+
+        &.PENDING {
+            color: goldenrod;
+            background-color: rgba(189, 189, 3, 0.103);
+        }
+
+        &.CANCELLED {
+            color: crimson;
+            background-color: rgba(189, 3, 28, 0.115);
+        }
+    }
+}

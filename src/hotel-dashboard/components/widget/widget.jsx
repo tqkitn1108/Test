@@ -1,4 +1,4 @@
-import React from "react";
+import "./widget.scss";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
@@ -20,7 +20,11 @@ const Widget = ({ type }) => {
                 link: "See all users",
                 icon: (
                     <PersonOutlinedIcon
-                        className="text-crimson bg-[rgba(255,0,0,0.2)] p-1 rounded"
+                        className="icon"
+                        style={{
+                            color: "crimson",
+                            backgroundColor: "rgba(255, 0, 0, 0.2)",
+                        }}
                     />
                 ),
             };
@@ -32,7 +36,11 @@ const Widget = ({ type }) => {
                 link: "View all orders",
                 icon: (
                     <ShoppingCartOutlinedIcon
-                        className="text-goldenrod bg-[rgba(218,165,32,0.2)] p-1 rounded"
+                        className="icon"
+                        style={{
+                            backgroundColor: "rgba(218, 165, 32, 0.2)",
+                            color: "goldenrod",
+                        }}
                     />
                 ),
             };
@@ -44,7 +52,8 @@ const Widget = ({ type }) => {
                 link: "View net earnings",
                 icon: (
                     <MonetizationOnOutlinedIcon
-                        className="text-green bg-[rgba(0,128,0,0.2)] p-1 rounded"
+                        className="icon"
+                        style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
                     />
                 ),
             };
@@ -56,7 +65,11 @@ const Widget = ({ type }) => {
                 link: "See details",
                 icon: (
                     <AccountBalanceWalletOutlinedIcon
-                        className="text-purple bg-[rgba(128,0,128,0.2)] p-1 rounded"
+                        className="icon"
+                        style={{
+                            backgroundColor: "rgba(128, 0, 128, 0.2)",
+                            color: "purple",
+                        }}
                     />
                 ),
             };
@@ -66,14 +79,16 @@ const Widget = ({ type }) => {
     }
 
     return (
-        <div className="flex justify-between flex-1 p-2 shadow-lg rounded-lg h-24">
-            <div className="flex flex-col justify-between">
-                <span className="font-bold text-gray-600 text-sm">{data.title}</span>
-                <span className="text-2xl font-light">{data.isMoney && "$"} {amount}</span>
-                <span className="text-xs border-b border-gray-400">{data.link}</span>
+        <div className="widget">
+            <div className="left">
+                <span className="title">{data.title}</span>
+                <span className="counter">
+                    {data.isMoney && "$"} {amount}
+                </span>
+                <span className="link">{data.link}</span>
             </div>
-            <div className="flex flex-col justify-between items-end">
-                <div className={`flex items-center text-sm ${diff > 0 ? 'text-green-500' : 'text-red-500'}`}>
+            <div className="right">
+                <div className="percentage positive">
                     <KeyboardArrowUpIcon />
                     {diff} %
                 </div>

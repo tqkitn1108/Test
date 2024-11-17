@@ -35,7 +35,7 @@ const Single = () => {
             <h1 className="title">Information</h1>
             <div className="item">
               <img
-                src={hotel.photo?.[0]}
+                src={hotel.photos?.[0]}
                 alt=""
                 className="itemImg"
               />

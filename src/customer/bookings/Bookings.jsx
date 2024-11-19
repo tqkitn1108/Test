@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { bookingSampleData } from '../../data/bookingSampleData.js';
 
-export default function Booking() {
+export default function Bookings() {
     const [isRatingOpen, setIsRatingOpen] = useState(false); // State để mở popup form
     const [currentRating, setCurrentRating] = useState({ rating: '', comment: '' }); // State lưu dữ liệu đánh giá
     const [selectedBooking, setSelectedBooking] = useState(null); // State lưu booking hiện tại

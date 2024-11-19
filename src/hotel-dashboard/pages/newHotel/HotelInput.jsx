@@ -1,18 +1,19 @@
+import "./newHotel.scss";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useEffect, useState } from "react";
 import api from "../../../api/AxiosConfig";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+
 
 const HotelInput = () => {
-  const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false);
-  const [modalMessage, setModalMessage] = useState("");
+  const [setShowModal] = useState(false);
+  const [setModalMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
   const [images, setImages] = useState([]);
-  const [facilities, setFacilities] = useState([]);
+  const [facilities, setFacilities] = useState([])
   const [info, setInfo] = useState({});
   const location = useLocation();
   const hotelId = new URLSearchParams(location.search).get("hotelId");
@@ -30,7 +31,7 @@ const HotelInput = () => {
     if (hotelId) {
       renderHotelDetails();
     }
-  }, []);
+  }, [])
 
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -38,15 +39,13 @@ const HotelInput = () => {
 
   const handleSelectChange = (event) => {
     const options = event.target.options;
-    const selectedOptionsArray = Array.from(options).filter(
-      (option) => option.selected
-    );
+    const selectedOptionsArray = Array.from(options).filter((option) => option.selected);
     const selectedValues = selectedOptionsArray.map((option) => option.value);
     setFacilities(selectedValues);
   };
 
   const handleImageChange = (e) => {
-    if (e.target.files && images.length + e.target.files.length <= 6) {
+    if (e.target.files && (images.length + e.target.files.length) <= 6) {
       const fileListArray = Array.from(e.target.files);
       setImages((prevImages) => prevImages.concat(fileListArray));
     }
@@ -55,18 +54,9 @@ const HotelInput = () => {
   const renderPhotos = (source) => {
     return source.map((file, index) => {
       return (
-        <div
-          key={index}
-          className="imageContainer relative w-[48%] max-h-[215px] m-[1%]"
-        >
-          <img
-            src={typeof file === "string" ? file : URL.createObjectURL(file)}
-            alt=""
-          />
-          <button
-            onClick={() => handleRemoveImage(index)}
-            className="removeButton w-[15px] h-[15px] absolute bg-[red] text-[white] cursor-pointer text-xs flex items-center justify-center p-[5px] rounded-[50%] border-[none] right-[5px] top-[5px]"
-          >
+        <div key={index} className="imageContainer">
+          <img src={typeof file === 'string' ? file : URL.createObjectURL(file)} alt="" />
+          <button onClick={() => handleRemoveImage(index)} className="removeButton">
             <FontAwesomeIcon icon={faTimes} />
           </button>
         </div>
@@ -86,7 +76,7 @@ const HotelInput = () => {
     try {
       const list = await Promise.all(
         images.map(async (image) => {
-          if (typeof image !== "string") {
+          if (typeof image !== 'string') {
             const data = new FormData();
             data.append("file", image);
             const uploadRes = await api.post("/upload", data);
@@ -100,7 +90,7 @@ const HotelInput = () => {
       const newhotel = {
         ...info,
         photos: list,
-        email: JSON.parse(localStorage.getItem("user")).userEmail,
+        email: JSON.parse(localStorage.getItem("user")).userEmail
       };
       if (!newhotel.facilities) newhotel.facilities = facilities;
 
@@ -109,7 +99,7 @@ const HotelInput = () => {
       } else {
         await api.post("/business/hotels", newhotel);
       }
-      setModalMessage("Thành công! Quay trở lại trang chủ.");
+      setModalMessage('Thành công! Quay trở lại trang chủ.');
     } catch (err) {
       setModalMessage(err.response);
     }
@@ -117,23 +107,31 @@ const HotelInput = () => {
     setShowModal(true);
   };
 
-  const handleCloseModal = () => {
-    setShowModal(false);
-    navigate("/business/hotels");
-  };
-  const vietnamProvinces = ["Hà Nội", "Hồ Chí Minh", "Đà Nẵng", "Hải Phòng"];
+  const vietnamProvinces = [
+    "Sa Pa", "Vũng Tàu", "Bắc Giang", "Hạ Long", "Sầm Sơn",
+    "Bắc Ninh", "Bến Tre", "Bình Định", "Bình Dương", "Bình Phước",
+    "Bình Thuận", "Hội An", "Cao Bằng", "Đà Lạt", "Điện Biên Phủ", "Tuy Hòa",
+    "Đồng Nai", "Đồng Tháp", "Gia Lai", "Hà Giang", "Hà Nam", "Hà Tĩnh",
+    "Hải Dương", "Cửa Lò", "Phong Nha", "Hưng Yên", "Khánh Hòa", "Kiên Giang",
+    "Kon Tum", "Lai Châu", "Lâm Đồng", "Đảo Cát Bà", "Lào Cai", "Long An",
+    "Mỹ Tho", "Nghệ An", "Ninh Bình", "Ninh Thuận", "Phú Thọ", "Quảng Bình",
+    "Quảng Nam", "Quảng Ngãi", "Quảng Ninh", "Quảng Trị", "Sóc Trăng",
+    "Sơn La", "Phú Quốc", "Thái Bình", "Thái Nguyên", "Thanh Hóa", "Huế",
+    "Tiền Giang", "Quy Nhơn", "Tuyên Quang", "Vĩnh Long", "Vĩnh Phúc", "Nha Trang",
+    "Phú Yên", "Cần Thơ", "Đà Nẵng", "Hải Phòng", "Hà Nội", "TP. Hồ Chí Minh"
+  ];
   return (
-    <div className="new">
-    // modal bootstrap here
-    // sidebar here
-    // loading spinner here
-      <div className="newContainer flex-grow-6">
-      // navbar here
-        <div className="top shadow-md p-4 m-5 flex">
+    <div className="new w-full flex">
+      {/*ModalBootstrap*/}
+      {/*Sidebar*/}
+      {loading} {/*Loading Spinner*/}
+      <div className="newContainer">
+        {/*Navbar*/}
+        <div className="top">
           <h1>Chi tiết khách sạn</h1>
         </div>
-        <div className="bottom shadow-md p-4 m-5 flex">
-          <div className="left flex-1 text-center flex flex-wrap">
+        <div className="bottom">
+          <div className="left">
             {renderPhotos(images)}
             {/* <img
               src={
@@ -144,13 +142,10 @@ const HotelInput = () => {
               alt=""
             /> */}
           </div>
-          <div className="right flex-2 px-5">
-            <form className="flex flex-wrap gap-7 justify-between">
-              <div className="formInput image w-full">
-                <label
-                  htmlFor="file"
-                  className="flex items-center gap-2 font-bold mb-1"
-                >
+          <div className="right">
+            <form  >
+              <div className="formInput image">
+                <label htmlFor="file">
                   Image: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
                 <input
@@ -162,20 +157,12 @@ const HotelInput = () => {
                 />
               </div>
 
-              // hotelinput here
-              <div className="formInput w-full">
+              {/*Hotel Input*/}
+              <div className="formInput">
                 <label>Kiểu chỗ nghỉ</label>
-                <select
-                  id="type"
-                  className="form-select"
-                  aria-label="Default select example"
-                  value={info?.type?.name}
-                  onChange={handleChange}
-                >
-                  <option selected disabled>
-                    {" "}
-                    -- Chọn kiểu chỗ nghỉ --
-                  </option>
+                <select id="type" className="form-select" aria-label="Default select example" value={info?.type?.name}
+                  onChange={handleChange}>
+                  <option selected disabled> -- Chọn kiểu chỗ nghỉ --</option>
                   <option value={"hotel"}>Khách sạn</option>
                   <option value={"apartment"}>Căn hộ</option>
                   <option value={"resort"}>Resort</option>
@@ -186,10 +173,8 @@ const HotelInput = () => {
                   <option value={"other"}>Khác </option>
                 </select>
               </div>
-              <div className="formInput w-full">
-                <label className="flex items-center gap-2 font-bold mb-1">
-                  Địa điểm
-                </label>
+              <div className="formInput">
+                <label>Địa điểm</label>
                 <select
                   id="dest"
                   className="form-select"
@@ -197,9 +182,7 @@ const HotelInput = () => {
                   value={info?.dest}
                   onChange={handleChange}
                 >
-                  <option selected disabled>
-                    -- Chọn địa điểm --
-                  </option>
+                  <option selected disabled>-- Chọn địa điểm --</option>
                   {vietnamProvinces.sort().map((province, index) => (
                     <option key={index} value={province}>
                       {province}
@@ -207,19 +190,11 @@ const HotelInput = () => {
                   ))}
                 </select>
               </div>
-              <div className="formInput w-full">
+              <div className="formInput">
                 <label>Xếp hạng chỗ nghỉ</label>
-                <select
-                  id="star"
-                  className="form-select w-full p-2"
-                  aria-label="Default select example"
-                  value={info?.star}
-                  onChange={handleChange}
-                >
-                  <option disabled selected>
-                    {" "}
-                    -- Chọn xếp hạng chỗ nghỉ --
-                  </option>
+                <select id="star" className="form-select" aria-label="Default select example" value={info?.star}
+                  onChange={handleChange}>
+                  <option disabled selected> -- Chọn xếp hạng chỗ nghỉ --</option>
                   <option value={0}>Không xếp hạng</option>
                   <option value={1}>Khách sạn 1 sao</option>
                   <option value={2}>Khách sạn 2 sao</option>
@@ -228,16 +203,9 @@ const HotelInput = () => {
                   <option value={5}>Khách sạn 5 sao</option>
                 </select>
               </div>
-              <div className="formInput w-full">
-                <label className="flex items-center gap-2 font-bold mb-1">
-                  Các tiện ích
-                </label>
-                <select
-                  id="facilities"
-                  multiple
-                  onChange={handleSelectChange}
-                  className="multi-select w-full px-2"
-                >
+              <div className="formInput">
+                <label>Các tiện ích</label>
+                <select id="facilities" multiple onChange={handleSelectChange} className="multi-select">
                   <option value={"non_smoking"}>Phòng không hút thuốc</option>
                   <option value={"family_room"}>Phòng gia đình</option>
                   <option value={"free_wifi"}>Wifi miễn phí</option>
@@ -246,31 +214,28 @@ const HotelInput = () => {
                   <option value={"air_conditioning"}>Điều hòa</option>
                 </select>
               </div>
-              <div className="formInput desc w-full">
-                <label className="flex items-center gap-2 font-bold mb-1">
-                  Thông tin khách sạn
-                </label>
+              <div className="formInput desc">
+                <label>Thông tin khách sạn</label>
                 <textarea
                   id={"description"}
                   onChange={handleChange}
                   value={info["description"]}
-                  className="w-full p-2"
                 />
               </div>
 
-              <div className="flex justify-center w-full mt-12">
-                <button
-                  className="submit-button w-[150px] p-3 rounded-md bg-teal-500 text-white font-bold cursor-pointer"
-                  onClick={handleClick}
-                >
+
+              <div className="d-flex justify-content-center">
+                <button className="submit-button" onClick={handleClick}>
                   {hotelId ? "Cập nhật" : "Đăng ký khách sạn"}
                 </button>
               </div>
             </form>
+
           </div>
         </div>
       </div>
     </div>
   );
 };
+
 export default HotelInput;

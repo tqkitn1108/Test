@@ -2,12 +2,11 @@ import "./newRoom.scss";
 import { useState } from "react";
 import { roomInputs } from "../../../data/formSource";
 import api from "../../../api/AxiosConfig";
-import { useNavigate, useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 
 const RoomInput = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [modalMessage, setModalMessage] = useState('');
-  const navigate = useNavigate();
+  const [setShowModal] = useState(false);
+  const [setModalMessage] = useState('');
   const [info, setInfo] = useState({});
   const { hotelId } = useParams();
   const [rooms, setRooms] = useState([]);
@@ -39,10 +38,6 @@ const RoomInput = () => {
     setAmenities(selectedValues);
   };
 
-  const handleCloseModal = () => {
-    setShowModal(false);
-    navigate(`/business/hotels/${hotelId}`);
-  };
 
   return (
     <div className="new">

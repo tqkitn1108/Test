@@ -1,39 +1,21 @@
-import './App.css';
-import Homepage from './customer/pages/home/home';
-import Booking from './customer/bookings/Booking';
-//import List from "./customer/pages/list/List.jsx";
-import Header from "./customer/header/Header.jsx";
-import Login from "./customer/pages/login-register/Login.jsx";
-import Signup from "./customer/pages/login-register/Signup.jsx";
-import Hotel from "./customer/pages/hotel/Hotel.jsx";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CustomerRouters from "./routers/CustomerRouters.jsx";
 import Home from "./hotel-dashboard/pages/home/Home.jsx";
 import List from "./hotel-dashboard/pages/list/List.jsx";
-import New from "./hotel-dashboard/pages/new/New.jsx";
-import HotelInput from './hotel-dashboard/pages/newHotel/HotelInput.jsx';
-import RoomInput from './hotel-dashboard/pages/newRoom/RoomInput.jsx';
-import BusinessSignup from './hotel-dashboard/pages/signup/BusinessSignup.jsx';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path='/booking' element={<Booking />} ></Route>
-        <Route path='/' element={<Homepage />} ></Route>
-        //<Route path='/list' element={<List />} ></Route>
-        <Route path='/login' element={<Login />} ></Route>
-        <Route path='/signup' element={<Signup />} ></Route>
-        <Route path='/Home' element={<Home />} ></Route>
-        <Route path='/List' element={<List />} ></Route>
-        <Route path='/New' element={<New />} ></Route>
-        <Route path='/HotelInput' element={<HotelInput />} ></Route>
-        <Route path='/Header' element={<Header />} ></Route>
-        <Route path='/RoomInput' element={<RoomInput />} ></Route>
-        <Route path='/BusinessSignup' element={<BusinessSignup />} ></Route>
-        
+        <Route path ='/*' element={<CustomerRouters />} ></Route> 
+        <Route path ='/home' element={<Home />} ></Route> 
+        <Route path ='/list' element={<List />} ></Route>
+
       </Routes>
-    </Router>
-  );
+    </BrowserRouter>
+  )
 }
 
 export default App;

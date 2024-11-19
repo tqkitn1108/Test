@@ -9,6 +9,7 @@ import {
   faTaxi,
   faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
+import "tippy.js/dist/tippy.css";
 
 export default function Header({ showTitle }) {
   return (

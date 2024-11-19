@@ -19,8 +19,8 @@ const SearchItem = () => {
   return (
     <div className="border border-gray-300 p-2.5 rounded-md flex justify-between gap-5 mb-5 w-full bg-[#f2f9fa]">
       <img
-        src="./bkecogreen.jpg"
-        alt="Không có ảnh"
+        src=""
+        alt="Nhà của Khoa"
         className="w-48 h-48 object-cover"
       />
       <div className="flex flex-col gap-2.5 flex-2">

@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/*' element={<CustomerRouters />} ></Route>
-        <Route path='/business/*' element={<BusinessRouters />} ></Route>
+        <Route path='/business/*' element={<BusinessRouters />} ></Route>2
       </Routes>
     </BrowserRouter>
   )

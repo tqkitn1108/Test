@@ -18,6 +18,7 @@ import Table from "./Table";
 import CardSlick from "./CardSlick";
 import { useLocation, useParams } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import { RatingComponent } from "../list/SearchItem";
 
 const Hotel = () => {
   const { hotelId } = useParams();
@@ -95,11 +96,11 @@ const Hotel = () => {
           </div>
         )}
         <div className="w-full flex flex-col gap-2 relative mt-[100px]">
-          <div className="siRating rating flex justify-end">
-            {/* <span className="cmt"><RatingComponent rating={hotel.rating}></RatingComponent></span> */}
+          <div className="absolute top-[60px] right-0 py-[10px] px-[20px] border-none text-black font-bold rounded-[5px] cursor-pointer">
+            <span className="font-medium text-sm"><RatingComponent rating={hotel.rating}></RatingComponent></span>
             <button className="bg-[#0a4fb0] text-white px-2 py-1 font-bold border-none rounded-[7px] shadow-[2px_2px_5px_#000b80]">{hotel.rating?.toFixed(1)}</button>
           </div>
-          <h1 className="text-[24px] my-3">{hotel.name} {rStars(hotel.star)}</h1>
+          <h1 className="text-[24px] my-3 font-medium">{hotel.name} {rStars(hotel.star)}</h1>
           <div className="flex items-center gap-2.5">
             <FontAwesomeIcon icon={faLocationDot} style={{ color: "#0071C2" }} />
             <span>{hotel.address}</span>
@@ -147,7 +148,7 @@ const Hotel = () => {
           </div>
         </div>
         <div className="max-w-[1100px] w-full">
-          {/* <SearchBar setShowRooms={setShowRooms} /> */}
+          <SearchBar setShowRooms={setShowRooms} />
           {showRooms ?
             <div className="max-w-[1100px] w-full"><Table /></div> : <h3 className="mt-5 text-center text-[28px] font-medium">Vui lòng chọn ngày để đặt phòng</h3>}
         </div>

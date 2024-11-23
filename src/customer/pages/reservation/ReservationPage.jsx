@@ -6,6 +6,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { Formik, Field, Form, ErrorMessage, useFormikContext } from 'formik';
 import { format } from 'date-fns';
 import { vi } from 'date-fns/locale';
+import api from '../../../api/AxiosConfig';
 import * as Yup from 'yup';
 
 const GoodToKnow = () => {
@@ -43,6 +44,7 @@ const SecurePage = ({ hotelId, location }) => {
     };
     setLoading(true);
     try {
+      await api.post(`/bookings/hotels/${hotelId}`, requestData);
       setLoading(false);
       alert("Thông tin đặt phòng đã được gửi đi. Mọi thông tin về thông tin đặt phòng sẽ được gửi về email ngay khi khách sạn xác nhận. Vui lòng thường xuyên kiểm tra email của bạn!");
       navigate("/");

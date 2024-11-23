@@ -11,7 +11,7 @@ const Signup = () => {
 
   return (
     <div>
-      <div className='fixed-navbar'><Navbar /></div>
+      <div className='fixed w-full'><Navbar /></div>
       <div className="bg-light h-24"></div>
       <Formik
         initialValues={{

@@ -5,13 +5,29 @@ import { Navigation } from 'swiper/modules';
 import { propertyTypes } from '../../../../data/propertyTypeSample';
 import { IoCaretBackCircleOutline, IoCaretForwardCircleSharp } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
+import AxiosConfig from '../../../../api/AxiosConfig';
+import api from "../../../../api/AxiosConfig";
+import { useEffect, useState } from 'react';
+import { countByType } from '../../../../api/ApiFunctions';
 
 const PropertyType = () => {
+    const [numProperties, setNumProperties] = useState({});
+    useEffect(() => {
+        async function countProperties() {
+            const destParams = propertyTypes.reduce((list, propertyType) => list + `,${propertyType.type}`, "");
+            try {
+                const response = await countByType(destParams.slice(1));
+                setNumProperties(response.data)
+            } catch (e) {
+                console.error(e);
+            }
+        }
+        countProperties()
+    }, []);
     const navigate = useNavigate();
 
     const slidesPerView = 4;
-
-
+    var remainSlot = 0;
 
     function handleSearch(typeName) {
         navigate(`/hotels/search?type=${typeName}&page=0`);
@@ -41,7 +57,7 @@ const PropertyType = () => {
                                 />
                                 <div className="text-center mt-2">
                                     <h5 className="text-lg font-bold">{propertyType.label}</h5>
-                                    <h5 className="text-gray-700 font-normal mt-1 text-sm">0 chỗ nghỉ</h5>
+                                    <h5 className="text-gray-700 font-normal mt-1 text-sm">{numProperties[propertyType.type]} chỗ nghỉ</h5>
                                 </div>
                             </div>
                         </SwiperSlide>

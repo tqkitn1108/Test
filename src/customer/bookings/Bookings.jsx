@@ -6,6 +6,7 @@ import ModalBootstrap from '../../components/modal/ModalBootstrap';
 import LoadingSpinner from '../../components/loading-spinner/LoadingSpinner';
 import { bookingSampleData } from '../../data/bookingSampleData.js';
 import { usePDF } from 'react-to-pdf';
+import { useRef } from 'react';
 
 function Bookings() {
     const [showReviewPopup, setShowReviewPopup] = useState(false);
@@ -21,6 +22,16 @@ function Bookings() {
     const { toPDF, targetRef } = usePDF({
         filename: 'simple-receipt.pdf',
     });
+
+
+    const bookingRefs = useRef({});
+
+    const generatePDF = (bookingId) => {
+        const elementRef = bookingRefs.current[bookingId];
+        if (elementRef) {
+            toPDF({ targetRef: elementRef });
+        }
+    };
 
 
     useEffect(() => {
@@ -101,7 +112,7 @@ function Bookings() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                         {list?.map(booking => (
-                            <div ref={booking.id} className="border border-white p-3 mb-6 bg-white shadow-md rounded-lg text-sm" key={booking.id}>
+                            <div ref={targetRef} className="border border-white p-3 mb-6 bg-white shadow-md rounded-lg text-sm" key={booking.id}>
                                 <div className="font-bold mb-2">{booking?.hotelName}</div>
                                 <div className="mb-4">{`Tổng giá đặt phòng: ${booking.totalPrice.toLocaleString('vi-VN')} VND`}</div>
                                 <div className="flex flex-col mb-4">

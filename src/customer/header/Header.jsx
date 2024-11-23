@@ -310,10 +310,10 @@ const Header = ({ showTitle }) => {
                     />
                     {errorMessage && buttonClicked && (
                       <div
-                        className="bg-[#d4111e] text-white absolute top-[46px] left-[14px] px-[8px] py-[4px] rounded-[5px] text-[14px] font-normal"
+                        className="bg-[#d4111e] text-white absolute top-[46px] left-[14px] px-[8px] py-[4px] rounded-[5px] text-[14px] font-normal whitespace-nowrap"
                         ref={componentRef3}
                       >
-                        <div className="text-black text-[18px]">
+                        <div className="text-[#d4111e] absolute top-[-11px] text-[16px]">
                           <FontAwesomeIcon icon={faCaretUp} />
                         </div>
                         {errorMessage}

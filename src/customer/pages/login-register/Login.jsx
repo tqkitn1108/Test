@@ -41,7 +41,7 @@ function Login() {
   return (
     <div>
       {loading && <LoadingSpinner />}
-      <div>
+      <div className="fixed w-full">
         <Navbar />
       </div>
       <div className="bg-white h-12"></div>

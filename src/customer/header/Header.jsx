@@ -257,7 +257,11 @@ const Header = ({ showTitle }) => {
           </div>
         )}
         <div>
-          <form className="h-[59px] bg-[#ffb700] flex items-center p-1 rounded-md w-full max-w-[1100px] relative top-7 gap-[2px]">
+          <form
+            className="h-[59px] bg-[#ffb700] flex items-center p-1 rounded-md w-full max-w-[1100px] relative top-7 gap-[2px]"
+            action=""
+            onSubmit={handleSearch}
+          >
             <HeadlessTippy
               placement="bottom"
               interactive="true"
@@ -395,9 +399,7 @@ const Header = ({ showTitle }) => {
                       >
                         -
                       </button>
-                      <span>
-                        {options.adult}
-                      </span>
+                      <span>{options.adult}</span>
                       <button
                         className="w-[40px] h-[40px] border-0 rounded-[4px] bg-white text-[#006ce4] text-[20px]"
                         onClick={(event) => handleOption(event, "adult", "i")}
@@ -413,16 +415,18 @@ const Header = ({ showTitle }) => {
                       <button
                         disabled={options.children <= 0}
                         className="w-[40px] h-[40px] border-0 rounded-[4px] bg-white text-[#006ce4] text-[20px]"
-                        onClick={(event) => handleOption(event, "children", "d")}
+                        onClick={(event) =>
+                          handleOption(event, "children", "d")
+                        }
                       >
                         -
                       </button>
-                      <span>
-                        {options.children}
-                      </span>
+                      <span>{options.children}</span>
                       <button
                         className="w-[40px] h-[40px] border-0 rounded-[4px] bg-white text-[#006ce4] text-[20px]"
-                        onClick={(event) => handleOption(event, "children", "i")}
+                        onClick={(event) =>
+                          handleOption(event, "children", "i")
+                        }
                       >
                         +
                       </button>
@@ -439,9 +443,7 @@ const Header = ({ showTitle }) => {
                       >
                         -
                       </button>
-                      <span>
-                        {options.room}
-                      </span>
+                      <span>{options.room}</span>
                       <button
                         className="w-[40px] h-[40px] border-0 rounded-[4px] bg-white text-[#006ce4] text-[20px]"
                         onClick={(event) => handleOption(event, "room", "i")}

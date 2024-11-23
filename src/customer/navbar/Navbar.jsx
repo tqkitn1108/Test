@@ -154,10 +154,10 @@ const Navbar = () => {
               </a>
             </div>
             <div className="flex gap-2">
-              <button className="bg-white text-[#006ce4] border border-transparent rounded px-4 py-1 hover:bg-gray-100" onClick={() => navigate("/signup")}>
+              <button className="bg-white text-[#006ce4] border border-transparent rounded px-2 py-2 hover:bg-gray-100" onClick={() => navigate("/signup")}>
                 Đăng ký
               </button>
-              <button className="bg-white text-[#006ce4] border border-transparent rounded px-4 py-1 hover:bg-gray-100" onClick={() => navigate("/login")}>
+              <button className="bg-white text-[#006ce4] border border-transparent rounded px-2 py-2 hover:bg-gray-100" onClick={() => navigate("/login")}>
                 Đăng nhập
               </button>
             </div>

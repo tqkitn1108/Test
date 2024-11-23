@@ -289,7 +289,7 @@ const Header = ({ showTitle }) => {
             >
               <div className="bg-white border border-[#ffb700] rounded-lg p-[14px] flex-1">
                 <div className="flex items-center gap-1">
-                  <div className="flex text-[#1a1a1a] gap-[6px] items-center">
+                  <div className="relative flex text-[#1a1a1a] gap-[6px] items-center">
                     <span className="text-[#474747] w-[20px] mb-[3px]">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -313,7 +313,7 @@ const Header = ({ showTitle }) => {
                         className="bg-[#d4111e] text-white absolute top-[46px] left-[14px] px-[8px] py-[4px] rounded-[5px] text-[14px] font-normal"
                         ref={componentRef3}
                       >
-                        <div className="text-[#d4111e] absolute top-[-11px] text-[16px]">
+                        <div className="text-black text-[18px]">
                           <FontAwesomeIcon icon={faCaretUp} />
                         </div>
                         {errorMessage}
@@ -324,7 +324,7 @@ const Header = ({ showTitle }) => {
                     <FontAwesomeIcon
                       icon={faXmark}
                       onClick={handleClear}
-                      className="text-[#d4111e] absolute top-[-11px] text-[16px]"
+                      className="text-black text-[18px]"
                     />
                   )}
                 </div>
@@ -454,7 +454,7 @@ const Header = ({ showTitle }) => {
                   </div>
 
                   <button
-                    className="bg-white text-[#006ce4] border border-[#006ce4] items-center mg[10px] rounded-[4px] inline-flex text-[14px] font-medium justify-center leading-[20px] px-[124px] text-center"
+                    className="bg-white text-[#006ce4] border border-[#006ce4] items-center mg[10px] rounded-[4px] inline-flex text-[18px] font-medium justify-center leading-[20px] px-[124px] py-[8px] text-center"
                     onClick={() => setOpenOptions(!openOptions)}
                   >
                     Xong

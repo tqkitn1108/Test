@@ -99,7 +99,7 @@ const TripPlanner = () => {
                                         <img src={destination.image} alt="" className="rounded-lg w-full h-[136px] object-cover md:h-[100px]" />
                                         <div>
                                             <h5 className="text-lg md:text-base font-bold">{destination.name}</h5>
-                                            <h5 className="text-gray-700 font-normal mt-1 text-sm md:text-xs">Cách đây 88km</h5>
+                                            <h5 className="text-gray-700 font-normal mt-1 text-sm md:text-xs">Cách đây {Math.floor(Math.random() * 500) + 1} km</h5>
                                         </div>
                                     </Link>
                                 </SwiperSlide>
@@ -132,7 +132,7 @@ const TripPlanner = () => {
                                         <img src={destination.image} alt="" className="rounded-lg w-full h-[136px] object-cover md:h-[100px]" />
                                         <div>
                                             <h5 className="text-lg md:text-base font-bold">{destination.name}</h5>
-                                            <h5 className="text-gray-700 font-normal mt-1 text-sm md:text-xs">Cách đây 88km</h5>
+                                            <h5 className="text-gray-700 font-normal mt-1 text-sm md:text-xs">Cách đây {Math.floor(Math.random() * 500) + 1} km</h5>
                                         </div>
                                     </Link>
                                 </SwiperSlide>
@@ -165,7 +165,7 @@ const TripPlanner = () => {
                                         <img src={destination.image} alt="" className="rounded-lg w-full h-[136px] object-cover md:h-[100px]" />
                                         <div>
                                             <h5 className="text-lg md:text-base font-bold">{destination.name}</h5>
-                                            <h5 className="text-gray-700 font-normal mt-1 text-sm md:text-xs">Cách đây 88km</h5>
+                                            <h5 className="text-gray-700 font-normal mt-1 text-sm md:text-xs">Cách đây {Math.floor(Math.random() * 500) + 1} km</h5>
                                         </div>
                                     </Link>
                                 </SwiperSlide>

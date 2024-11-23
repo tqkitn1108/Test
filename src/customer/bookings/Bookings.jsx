@@ -38,27 +38,23 @@ function Bookings() {
         loadData();
     }, []);
 
-    // async function loadData() {
-    //     try {
-    //         const response = await api.get(`/bookings/users/${user?.userId}`);
-    //         const data = await Promise.all(response.data.map(async (booking) => {
-    //             const hotelRes = await api.get(`/business/hotels/${booking.hotelId}`);
-    //             return {
-    //                 ...booking,
-    //                 hotelName: hotelRes.data.name
-    //             }
-    //         }))
-    //         setList(data);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    //     setLoading(false);
-    // }
-
     async function loadData() {
-        setList(bookingSampleData)
+        try {
+            const response = await api.get(`/bookings/users/${user?.userId}`);
+            const data = await Promise.all(response.data.map(async (booking) => {
+                const hotelRes = await api.get(`/business/hotels/${booking.hotelId}`);
+                return {
+                    ...booking,
+                    hotelName: hotelRes.data.name
+                }
+            }))
+            setList(data);
+        } catch (error) {
+            console.log(error);
+        }
         setLoading(false);
     }
+
 
     const handleRateReviewClick = (id, hotelId) => {
         setBookingInfo({ id, hotelId });

@@ -15,8 +15,10 @@ const PropertyType = () => {
     useEffect(() => {
         async function countProperties() {
             const destParams = propertyTypes.reduce((list, propertyType) => list + `,${propertyType.type}`, "");
+            console.log("DestParams: ", destParams.slice(1));
             try {
                 const response = await countByType(destParams.slice(1));
+                console.log(response.data)
                 setNumProperties(response.data)
             } catch (e) {
                 console.error(e);
@@ -27,7 +29,6 @@ const PropertyType = () => {
     const navigate = useNavigate();
 
     const slidesPerView = 4;
-    var remainSlot = 0;
 
     function handleSearch(typeName) {
         navigate(`/hotels/search?type=${typeName}&page=0`);

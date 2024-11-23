@@ -95,9 +95,9 @@ const Hotel = () => {
           </div>
         )}
         <div className="w-full flex flex-col gap-2 relative mt-[100px]">
-          <div className="siRating rating">
+          <div className="siRating rating flex justify-end">
             {/* <span className="cmt"><RatingComponent rating={hotel.rating}></RatingComponent></span> */}
-            <button className="bg-[#0a4fb0] text-white px-2 py-1 font-bold border-none rounded-[7px] rounded-bl-none shadow-[2px_2px_5px_#000b80]">{hotel.rating?.toFixed(1)}</button>
+            <button className="bg-[#0a4fb0] text-white px-2 py-1 font-bold border-none rounded-[7px] shadow-[2px_2px_5px_#000b80]">{hotel.rating?.toFixed(1)}</button>
           </div>
           <h1 className="text-[24px] my-3">{hotel.name} {rStars(hotel.star)}</h1>
           <div className="flex items-center gap-2.5">
@@ -121,22 +121,22 @@ const Hotel = () => {
               </div>
             ))}
           </div>
-          <div className="flex justify-between gap-5 mt-5 h-auto">
+          <div className="flex justify-between gap-[20px] mt-[20px] h-auto">
             <div className="flex-3">
-              <h3 className="text-[24px] my-3">Những tiện nghi được ưa chuộng nhất</h3>
+              <h3 className="text-[24px] my-[12px] font-medium">Những tiện nghi được ưa chuộng nhất</h3>
               <Badges hotelFacilites={hotel.facilities} />
-              <h3 className="text-[24px] my-3">Mô tả về chỗ nghỉ</h3>
+              <h3 className="text-[24px] my-[12px] font-medium">Mô tả về chỗ nghỉ</h3>
               <p className="text-[20px]">
                 {hotel.description}
               </p>
             </div>
             <div>
-              <div className="flex-1 bg-[#ebf3ff] p-5 flex flex-col gap-5">
-                <h1 className="text-[20px] text-[rgba(0,0,0,0.613)]">Điểm nổi bật của chỗ nghỉ</h1>
+              <div className="flex-1 bg-[#ebf3ff] p-[20px] flex flex-col gap-[20px] w-[330px]">
+                <h1 className="text-[20px] text-[rgba(0,0,0,0.613)] font-medium">Điểm nổi bật của chỗ nghỉ</h1>
                 <span className="text-[14px]">
                   Nằm ở {hotel.dest}, {hotel.type?.label} này có vị trí tuyệt vời
                 </span>
-                <h1 className="text-[20px] text-[rgba(0,0,0,0.613)]">Thông tin về bữa sáng</h1>
+                <h1 className="text-[20px] text-[rgba(0,0,0,0.613)] font-medium">Thông tin về bữa sáng</h1>
                 <div className="text-[15px] flex items-center gap-2.5">
                   <FontAwesomeIcon icon={faLocationDot} />
                   <span className="text-[14px]">Tự chọn, bữa sáng mang đi</span>
@@ -147,9 +147,9 @@ const Hotel = () => {
           </div>
         </div>
         <div className="max-w-[1100px] w-full">
-          <SearchBar setShowRooms={setShowRooms} />
+          {/* <SearchBar setShowRooms={setShowRooms} /> */}
           {showRooms ?
-            <div className="max-w-[1100px] w-full"><Table /></div> : <h3 className="mt-5 text-center">Vui lòng chọn ngày để đặt phòng</h3>}
+            <div className="max-w-[1100px] w-full"><Table /></div> : <h3 className="mt-5 text-center text-[28px] font-medium">Vui lòng chọn ngày để đặt phòng</h3>}
         </div>
         {hotel.reviews?.length > 0 &&
           <div className="max-w-[1100px] w-full">

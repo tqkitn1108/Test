@@ -2,7 +2,6 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
-import "./email-responsive.css";
 
 const MailList = () => {
   const formik = useFormik({

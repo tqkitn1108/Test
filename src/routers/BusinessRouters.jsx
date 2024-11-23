@@ -12,7 +12,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import AuthProvider from "../context/AuthContext";
 import { DarkModeContextProvider } from "../hotel-dashboard/context/darkModeContext";
-import "../hotel-dashboard/style/dark.scss";
+// import "../hotel-dashboard/style/dark.scss";
 import RoomInput from "../hotel-dashboard/pages/newRoom/RoomInput";
 
 function BusinessRouters() {

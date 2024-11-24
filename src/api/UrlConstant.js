@@ -1,4 +1,4 @@
-export const API_BASE_URL = 'http://192.168.102.152:8080';
+export const API_BASE_URL = 'http://localhost:8080';
 // export const API_BASE_URL = 'https://booking-app-backend-2mxz.onrender.com';
 export const ACCESS_TOKEN = 'token';
 

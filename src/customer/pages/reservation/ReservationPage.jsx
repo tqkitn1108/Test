@@ -24,10 +24,6 @@ const GoodToKnow = () => {
 
 const SecurePage = ({ hotelId, location }) => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const [loading, setLoading] = useState(false);
-
-  // const formik = useFormikContext();
-  const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
 
   const completeBooking = async (values) => {
@@ -42,12 +38,13 @@ const SecurePage = ({ hotelId, location }) => {
       checkInDate: searchParams.get('checkIn'),
       checkOutDate: searchParams.get('checkOut')
     };
-    setLoading(true);
     try {
-      await api.post(`/bookings/hotels/${hotelId}`, requestData);
-      setLoading(false);
-      alert("Thông tin đặt phòng đã được gửi đi. Mọi thông tin về thông tin đặt phòng sẽ được gửi về email ngay khi khách sạn xác nhận. Vui lòng thường xuyên kiểm tra email của bạn!");
-      navigate("/");
+      const bookingResponse = await api.post(`/bookings/hotels/${hotelId}`, requestData);
+      const bookingId = bookingResponse.data.id;
+      const response = await api.post(`/payment/create?amount=${requestData.totalPrice}&orderInfo=${bookingId}`);
+
+      const { paymentUrl } = response.data;
+      window.location.href = paymentUrl;
     } catch (err) {
       console.log(err);
     }
@@ -83,8 +80,6 @@ const SecurePage = ({ hotelId, location }) => {
 
     return errors;
   };
-
-  const cardTypes = ['Visa', 'MasterCard', 'American Express', 'Discover'];
 
   return (
     <div>
@@ -212,7 +207,7 @@ const ReservationPage = () => {
         address: "Quận Hoàn Kiếm",
         rating: 4.5
       };
-  
+
       setHotel(hotelData);
     } catch (err) {
       console.log(err);

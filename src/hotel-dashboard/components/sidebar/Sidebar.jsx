@@ -74,7 +74,7 @@ const Sidebar = ({ hideSideBar }) => {
                             <Link to={`/business/hotels/${hotelId}/bookings/pending`} style={{ textDecoration: "none" }}>
                                 <li>
                                     <PersonOutlineIcon className="icon" />
-                                    <span>Đặt phòng đang chờ</span>
+                                    <span>Đặt phòng gần đây</span>
                                 </li>
                             </Link>
                             <Link to={`/business/hotels/${hotelId}/bookings`} style={{ textDecoration: "none" }}>

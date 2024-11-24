@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-// import './reservation.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWifi, faShuttleVan, faParking, faCheckCircle, faLock, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
@@ -8,7 +7,6 @@ import { Formik, Field, Form, ErrorMessage, useFormikContext } from 'formik';
 import { format } from 'date-fns';
 import { vi } from 'date-fns/locale';
 import * as Yup from 'yup';
-// import cvcCodeImage from './cvcCodeImage.png';
 import api from '../../../api/AxiosConfig';
 import Navbar from '../../navbar/Navbar';
 import LoadingSpinner from '../../../components/loading-spinner/LoadingSpinner';

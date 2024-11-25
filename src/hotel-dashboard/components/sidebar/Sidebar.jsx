@@ -31,6 +31,7 @@ const Sidebar = ({ hideSideBar }) => {
     useEffect(() => {
         async function loadData() {
             try {
+                console.log("Hotel ID: ", hotelId);
                 const response = await api.get(`/business/hotels/${hotelId}`);
                 setHotelImg(response.data.photos?.[0])
                 setHotelName(response.data.name);
